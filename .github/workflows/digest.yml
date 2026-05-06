@@ -1,0 +1,54 @@
+name: Morning Digest
+
+on:
+  schedule:
+    # 13:00 UTC = 9am EDT (Mar–Nov), 8am EST (Nov–Mar). Mon–Fri only.
+    - cron: '0 13 * * 1-5'
+  workflow_dispatch:  # allow manual trigger from the Actions tab
+
+# Allow this workflow to commit the new digest + ledger back to the repo.
+permissions:
+  contents: write
+
+concurrency:
+  group: morning-digest
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run digest
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          DIGEST_TO: ${{ vars.DIGEST_TO || 'anshvidyarthi@gmail.com' }}
+          DIGEST_MODEL: ${{ vars.DIGEST_MODEL || 'claude-sonnet-4-5' }}
+        run: python morning_digest.py
+
+      - name: Commit digest + ledger
+        run: |
+          git config user.name "morning-digest-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add digests/ .covered-urls.tsv
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            DATE=$(TZ=America/New_York date +%Y-%m-%d)
+            git commit -m "Digest for $DATE"
+            git push
+          fi
