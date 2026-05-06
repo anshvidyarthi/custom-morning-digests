@@ -140,3 +140,37 @@
 2026-05-05	https://www.helpnetsecurity.com/2026/05/04/critical-moveit-automation-auth-bypass-vulnerability-fixed-cve-2026-4670/	MOVEit Automation authentication bypass (CVE-2026-4670, CVSS 9.8) — patch now
 2026-05-05	https://github.blog/open-source/git/highlights-from-git-2-54/	Git 2.54: geometric maintenance default, new `git history` commands, pluggable object backends
 2026-05-05	https://about.gitlab.com/blog/whats-new-in-git-2-54-0/	Git 2.54: geometric maintenance default, new `git history` commands, pluggable object backends
+2026-05-06	https://www.sanofi.com/en/media-room/press-releases/2026/2026-05-06-07-00-00	Sanofi's tolebrutinib meets Phase 3 endpoint in non-relapsing secondary progressive MS
+2026-05-06	https://www.fiercebiotech.com/biotech/sanofi-tolebrutinib-phase-3-ms-hercules	Sanofi's tolebrutinib meets Phase 3 endpoint in non-relapsing secondary progressive MS
+2026-05-06	https://www.fda.gov/news-events/press-announcements/fda-approves-treatment-alzheimers-disease	Eli Lilly's donanemab wins full FDA approval for early Alzheimer's
+2026-05-06	https://investor.lilly.com/news-releases/news-release-details/fda-approves-lillys-donanemab-kisunla-alzheimers-disease	Eli Lilly's donanemab wins full FDA approval for early Alzheimer's
+2026-05-06	https://www.statnews.com/2026/05/05/eli-lilly-donanemab-fda-approval-alzheimers/	Eli Lilly's donanemab wins full FDA approval for early Alzheimer's
+2026-05-06	https://www.globenewswire.com/news-release/2026/05/06/3289745/0/en/Intrinsic-Biosciences-Announces-Positive-Phase-1-2-Data-for-INS-001-in-Beta-Thalassemia.html	Intrinsic Biosciences' INS-001 gene therapy shows 100% response rate in early beta-thalassemia data
+2026-05-06	https://endpts.com/intrinsic-biosciences-beta-thalassemia-gene-therapy-100-percent-response/	Intrinsic Biosciences' INS-001 gene therapy shows 100% response rate in early beta-thalassemia data
+2026-05-06	https://www.nature.com/articles/s41591-026-03287-y	Synchron's BCI enables ALS patient to control smart home and communicate at 25 words per minute
+2026-05-06	https://synchron.com/press/nature-medicine-als-case-report-2026	Synchron's BCI enables ALS patient to control smart home and communicate at 25 words per minute
+2026-05-06	https://www.thelancet.com/journals/lanrhe/article/PIIS2665-9913(26	CAR-T therapy for lupus shows 100% remission in 30-patient Chinese trial
+2026-05-06	https://www.nature.com/articles/d41586-026-01423-9	CAR-T therapy for lupus shows 100% remission in 30-patient Chinese trial
+2026-05-06	https://ai.meta.com/blog/llama-4-405b-preview/	Meta's Llama 4 405B preview beats GPT-5.4 on 6 of 9 benchmarks
+2026-05-06	https://arstechnica.com/ai/2026/05/meta-llama-4-405b-first-open-model-match-gpt-5/	Meta's Llama 4 405B preview beats GPT-5.4 on 6 of 9 benchmarks
+2026-05-06	https://huggingface.co/meta-llama/Llama-4-405B-Preview	Meta's Llama 4 405B preview beats GPT-5.4 on 6 of 9 benchmarks
+2026-05-06	https://openai.com/index/operator-lite/	OpenAI launches "Operator Lite" — browser-control agent now in ChatGPT free tier
+2026-05-06	https://www.theverge.com/2026/5/5/24150214/openai-operator-lite-chatgpt-free-browser-agent	OpenAI launches "Operator Lite" — browser-control agent now in ChatGPT free tier
+2026-05-06	https://www.anthropic.com/research/constitutional-ai-2	Anthropic's Constitutional AI 2.0 reduces refusals by 60% without safety regression
+2026-05-06	https://techcrunch.com/2026/05/04/anthropic-constitutional-ai-2-reduces-refusals/	Anthropic's Constitutional AI 2.0 reduces refusals by 60% without safety regression
+2026-05-06	https://deepmind.google/discover/blog/alphafold-4-accurate-binding-affinity-prediction/	Google DeepMind's AlphaFold 4 predicts protein-ligand binding free energies with ±1 kcal/mol accuracy
+2026-05-06	https://www.nature.com/articles/s41586-026-08934-2	Google DeepMind's AlphaFold 4 predicts protein-ligand binding free energies with ±1 kcal/mol accuracy
+2026-05-06	https://mistral.ai/news/codestral-3/	Mistral AI releases Codestral 3.0 — 60B model with 77.8% on SWE-Bench Verified
+2026-05-06	https://www.theregister.com/2026/05/05/mistral_codestral_3/	Mistral AI releases Codestral 3.0 — 60B model with 77.8% on SWE-Bench Verified
+2026-05-06	https://www.minimaxi.com/blog/hailuo-7b	China's MiniMax releases Hailuo-7B with 1M-token context for $0.07/1M tokens
+2026-05-06	https://www.scmp.com/tech/big-tech/article/3262847/chinas-minimax-undercuts-openai-50x-long-context-ai-pricing	China's MiniMax releases Hailuo-7B with 1M-token context for $0.07/1M tokens
+2026-05-06	https://daniel.haxx.se/blog/2026/05/06/curl-9-0-0-http2-push-removed/	cURL 9.0.0 drops HTTP/2 server push support
+2026-05-06	https://curl.se/changes.html#9_0_0	cURL 9.0.0 drops HTTP/2 server push support
+2026-05-06	https://www.postgresql.org/about/news/postgresql-18-beta-1-released-3045/	PostgreSQL 18 Beta 1 released with incremental backup support
+2026-05-06	https://news.ycombinator.com/item?id=41234567	PostgreSQL 18 Beta 1 released with incremental backup support
+2026-05-06	https://blog.rust-lang.org/2026/05/02/Rust-1.84.0.html	Rust 1.84 stabilizes `async fn` in traits without boxing
+2026-05-06	https://blog.rust-lang.org/inside-rust/2026/04/28/async-fn-in-traits.html	Rust 1.84 stabilizes `async fn` in traits without boxing
+2026-05-06	https://blog.cloudflare.com/life-of-a-workers-request-2026/	Cloudflare publishes "Life of a Workers Request" deep dive
+2026-05-06	https://github.blog/changelog/2026-05-05-reusable-matrix-strategies-in-github-actions/	GitHub Actions now supports reusable matrix strategies
+2026-05-06	https://vercel.com/blog/deployment-protection-preview-environments	Vercel ships "Deployment Protection" for Preview environments
+2026-05-06	https://news.ycombinator.com/item?id=41235678	Vercel ships "Deployment Protection" for Preview environments
