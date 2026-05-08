@@ -213,3 +213,21 @@
 2026-05-07	https://www.bleepingcomputer.com/news/security/apache-struts-rce-cve-2026-23456-actively-exploited/	CISA adds CVE-2026-23456 (Apache Struts RCE) to KEV catalog
 2026-05-07	https://blog.cloudflare.com/workers-wasm-component-model/	Cloudflare Workers now support WebAssembly Component Model
 2026-05-07	https://news.ycombinator.com/item?id=42346789	Cloudflare Workers now support WebAssembly Component Model
+2026-05-08	https://investors.modernatx.com/news/news-details/2026/Moderna-Announces-Positive-Phase-3-Results-for-mRNA-4157-V940-in-High-Risk-Melanoma/default.aspx	Moderna's personalized cancer vaccine meets Phase 3 primary endpoint in melanoma
+2026-05-08	https://www.nature.com/articles/s41586-026-09456-7	AlphaFold 5 predicts RNA structures with 90% accuracy
+2026-05-08	https://www.fda.gov/news-events/press-announcements/fda-approves-first-non-opioid-nav18-inhibitor-acute-pain	FDA approves Vertex's non-opioid pain drug
+2026-05-08	https://www.nature.com/articles/s41591-026-03421-w	Synchron BCI enables paralyzed patient to control DJI drone via thought
+2026-05-08	https://www.americanagingassociation.org/news/altos-labs-extended-follow-up-2026	Altos Labs reports 3.2-year epigenetic age reversal in partial reprogramming trial
+2026-05-08	https://investors.biontech.de/news-releases/news-release-details/biontech-announces-positive-phase-2-data-bnt211-pancreatic	BioNTech's CAR-T for solid tumors shows 38% ORR in Phase 2 pancreatic cancer
+2026-05-08	https://openai.com/index/gpt-5-6-planning-tokens/	OpenAI releases GPT-5.6 with "planning tokens" that don't count toward output
+2026-05-08	https://www.anthropic.com/research/claude-3-8-opus	Anthropic's Claude 3.8 Opus matches GPT-5.6 on most benchmarks, costs 40% less
+2026-05-08	https://www.deepseek.com/news/deepseek-v6	China's DeepSeek-V6 claims GPT-5.6 parity at $0.09 per million tokens
+2026-05-08	https://www.dataprotection.ie/en/news-media/press-releases/openai-gdpr-fine-may-2026	EU fines OpenAI €85M for GDPR violations in training data
+2026-05-08	https://deepmind.google/discover/blog/gemini-3-6-ultra-arc-agi/	Google's Gemini 3.6 Ultra passes ARC-AGI with 87% accuracy
+2026-05-08	https://ai.meta.com/blog/llama-4-5/	Meta releases Llama 4.5 with 1024-GPU training run
+2026-05-08	https://lwn.net/Articles/992847/	Linux 6.17 merges real-time PREEMPT_RT after 20-year effort
+2026-05-08	https://www.postgresql.org/about/news/postgresql-19-beta-2-released-3087/	PostgreSQL 19 Beta 2 ships with native columnar storage
+2026-05-08	https://blog.rust-lang.org/2026/05/06/Rust-1.85.0.html	Rust 1.85 stabilizes async drop and AsyncIterator
+2026-05-08	https://github.blog/news-insights/product-news/copilot-workspace-multi-repo/	GitHub Copilot Workspace now supports multi-repo refactors
+2026-05-08	https://deno.com/blog/v3	Deno 3.0 ships with Node.js compatibility at 98%
+2026-05-08	https://www.cisa.gov/known-exploited-vulnerabilities-catalog	CISA adds CVE-2026-28347 (Fortinet VPN RCE) to KEV catalog
