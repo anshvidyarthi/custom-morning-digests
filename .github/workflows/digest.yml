@@ -2,8 +2,13 @@ name: Morning Digest
 
 on:
   schedule:
-    # 13:00 UTC = 9am EDT (Mar–Nov), 8am EST (Nov–Mar). Mon–Fri only.
-    - cron: '0 13 * * 1-5'
+    # GitHub Actions cron is best-effort and frequently delayed by 30-90+ min,
+    # or skipped entirely under platform load. Fire multiple times and rely on
+    # the idempotency guard in morning_digest.py to ensure exactly one digest
+    # per day. Each slot below is Mon–Fri only.
+    - cron: '0 13 * * 1-5'  # primary: 13:00 UTC = 9am EDT / 8am EST
+    - cron: '0 15 * * 1-5'  # retry  : 15:00 UTC = 11am EDT / 10am EST
+    - cron: '0 17 * * 1-5'  # retry  : 17:00 UTC = 1pm EDT  / 12pm EST
   workflow_dispatch:  # allow manual trigger from the Actions tab
 
 # Allow this workflow to commit the new digest + ledger back to the repo.

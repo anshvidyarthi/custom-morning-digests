@@ -290,6 +290,18 @@ def main() -> int:
     today = today_str()
     print(f"=== Cool Topic Readings run for {today} ===")
 
+    # Idempotency guard: if today's digest already exists in the repo (committed
+    # by an earlier successful fire), exit immediately. This makes the multi-time
+    # cron schedule (13:00 / 15:00 / 17:00 UTC) safe — only the first successful
+    # slot does work; later slots no-op cleanly.
+    digest_path = DIGESTS_DIR / f"{today}.md"
+    if digest_path.exists() and digest_path.stat().st_size > 5000:
+        print(
+            f"Today's digest already exists at {digest_path.relative_to(REPO_ROOT)} "
+            f"({digest_path.stat().st_size:,} bytes). Nothing to do."
+        )
+        return 0
+
     prompt = render_prompt(today)
     print(f"Rendered prompt: {len(prompt):,} chars")
 
