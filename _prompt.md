@@ -21,6 +21,8 @@ For every candidate item you're considering for today's digest, ask:
 
 When in doubt, drop it. A digest with 12 fresh items beats one with 18 items where 6 are recycled.
 
+BUT: don't be SO aggressive that you produce nothing. Aim for 4-6 items per niche. If your first round of searches turns up things that look already-covered, search more — different sources, different angles, different sub-topics within each niche. There is always something new in the world; the job is to find it. Producing a digest with "no news today" or empty sections is a failure mode. Search broadly and keep looking until you have at least 4 substantive items per niche.
+
 NICHES & SOURCES TO WEIGHT:
 
 Biotech / Longevity / Neurotech
@@ -31,19 +33,24 @@ Biotech / Longevity / Neurotech
 - Neurotech: Neuralink, Synchron, Precision Neuroscience, BCI/brain-computer-interface news
 - FDA approvals, major clinical trial readouts
 
-AI
+AI (research, models, policy)
 - Anthropic, OpenAI, DeepMind, Google AI, Meta AI blogs
 - arXiv cs.LG, cs.AI, cs.CL — most-discussed recent papers
 - Hacker News (AI stories with significant discussion)
 - Simon Willison's blog, Nathan Lambert's Interconnects, Ethan Mollick
 - Major model releases, benchmark results, AI policy/regulatory news
+- This section is about AI as a field: capabilities frontier, lab announcements, papers, governance.
 
-Software Engineering
-- Hacker News front page (top non-AI engineering stories)
-- Lobsters
-- Engineering blogs: Stripe, Cloudflare, GitHub, Vercel, Netflix Tech, Discord, Figma
-- Major language/framework releases (TypeScript, Python, Rust, Go, React, Next.js)
-- Significant tooling launches, postmortems, security advisories
+AI Productivity (tools, workflows, agents)
+- This section is about *using AI to get work done faster* — distinct from the AI research section above.
+- New or updated AI-powered tools: Cursor, Claude Code, GitHub Copilot, Windsurf, Continue, Aider, Zed AI, Replit, Vercel v0
+- Agent frameworks and runtimes: Anthropic Agent SDK, OpenAI Agents SDK, LangGraph, CrewAI, AutoGen, Mastra
+- Browser/computer-use agents: Anthropic Computer Use, Manus, MultiOn, BrowserBase, Playwright MCP
+- MCP server releases, IDE extensions, prompt libraries, skill marketplaces
+- Workflow techniques: notable prompt engineering write-ups, agent-orchestration patterns, "how I use Claude/Cursor" essays from credible practitioners (Simon Willison, Geoffrey Huntley, Mitchell Hashimoto, Birchtree, etc.)
+- Productivity-focused launches in adjacent tools (Notion AI, Linear, Granola, Raycast AI, Arc Browser AI, ChatGPT Atlas)
+- Notable tutorials, benchmarks of agent harnesses, or evals comparing tools
+- Skip pure model releases (those go in the AI section above) UNLESS they ship a meaningful new productivity feature
 
 FILTERING:
 - Skip marketing fluff and pure press releases
@@ -62,14 +69,19 @@ OUTPUT (~1500-2500 words, 5-10 min read), structured exactly as:
 (4-6 items)
 
 ## 🤖 AI
-(5-7 items, same format)
+(5-7 items, same format — research, models, policy)
 
-## 💻 Software Engineering
-(4-6 items, same format)
+## ⚡ AI Productivity
+(4-6 items, same format — tools, agents, workflows, "how I use AI" essays)
 
 ## Worth a deeper look
 1-2 longer items expanded into 4-6 sentences if anything especially noteworthy.
 
 CRITICAL: Always include working https:// links for each item — the link should be embedded as `[source name](https://...)` at the end of each item. Voice: neutral, informational, no hype.
 
-Output ONLY the Markdown digest. No preamble, no explanation, no closing remarks. Start with `# Cool Topic Readings —`.
+CRITICAL OUTPUT RULES:
+- Output ONLY the final Markdown digest. No preamble, no thinking notes, no commentary about your search process, no closing remarks.
+- Do NOT explain what you searched, what you found, or what you decided to skip. Just write the digest.
+- Do NOT include phrases like "I searched for…", "Based on my research…", "The field is in a consolidation phase…", or "Why the digest is short today".
+- Start with the literal text: `# Cool Topic Readings —` and end with the last item of the "Worth a deeper look" section.
+- If your first attempt at the digest is too short, do MORE searches and produce a longer one — do not write meta-commentary about news being slow.

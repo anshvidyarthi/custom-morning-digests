@@ -28,7 +28,7 @@ LEDGER = REPO_ROOT / ".covered-urls.tsv"
 PROMPT_FILE = REPO_ROOT / "_prompt.md"
 
 LOOKBACK_DAYS_LEDGER = 14
-LOOKBACK_DAYS_DIGESTS = 7
+LOOKBACK_DAYS_DIGESTS = 3
 
 MODEL = os.environ.get("DIGEST_MODEL", "claude-sonnet-4-5")
 MAX_TOKENS = 16000
@@ -109,7 +109,18 @@ def run_agent(prompt: str) -> str:
     # Server-side web_search means Anthropic runs the loop internally; the
     # response.content already contains the final assistant message text.
     text_blocks = [b.text for b in response.content if getattr(b, "type", None) == "text"]
-    digest = "\n".join(text_blocks).strip()
+    raw = "\n".join(text_blocks).strip()
+
+    # The model often produces commentary or false starts before the real digest.
+    # Take the substring starting at the LAST "# Cool Topic Readings" header.
+    marker = "# Cool Topic Readings"
+    last_idx = raw.rfind(marker)
+    digest = raw[last_idx:].strip() if last_idx >= 0 else raw
+
+    # Always save the raw response too — useful for debugging when validation fails.
+    debug_path = REPO_ROOT / ".last-raw-response.md"
+    debug_path.write_text(raw)
+    print(f"Raw response saved to {debug_path.name} ({len(raw):,} chars)")
 
     # Log usage for debugging.
     if hasattr(response, "usage"):
@@ -133,6 +144,18 @@ def validate_digest(text: str) -> None:
         raise RuntimeError(f"Digest missing expected sections: {missing}")
     if len(text) < 1500:
         raise RuntimeError(f"Digest suspiciously short: {len(text)} chars")
+    # Sanity: at least 4 items with a URL across the whole digest.
+    # Allow headline and URL to be separated by up to ~600 chars (multi-line items).
+    bold_url_pattern = re.compile(
+        r"\*\*[^*]{1,200}\*\*.{0,600}?\[[^\]]+\]\(https?://", re.DOTALL
+    )
+    matches = bold_url_pattern.findall(text)
+    if len(matches) < 4:
+        raise RuntimeError(
+            f"Digest has only {len(matches)} items with URLs (need >=4) — agent "
+            "likely returned a 'no news' placeholder. Raw response saved to "
+            ".last-raw-response.md for debugging."
+        )
 
 
 # ---- Persistence ----
