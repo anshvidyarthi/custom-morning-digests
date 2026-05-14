@@ -320,3 +320,41 @@
 2026-05-13	https://news.ycombinator.com/item?id=42790123	"How I use Claude to write technical specs" — Mitchell Hashimoto's workflow essay
 2026-05-13	https://windsurf.com/changelog/2-2	Windsurf 2.2 adds "Cascade Memory" — agents remember past refactors across sessions
 2026-05-13	https://news.ycombinator.com/item?id=42791234	Windsurf 2.2 adds "Cascade Memory" — agents remember past refactors across sessions
+2026-05-14	https://www.twistbioscience.com/company/press-releases/twist-bioscience-million-bp-synthesis-2026	Twist Bioscience announces 1-million-base-pair DNA synthesis breakthrough
+2026-05-14	https://www.fiercebiotech.com/medtech/twist-bioscience-million-base-pair-dna-synthesis-breakthrough-2026	Twist Bioscience announces 1-million-base-pair DNA synthesis breakthrough
+2026-05-14	https://insilico.com/news/ism-3312-phase-1-results-2026	Insilico Medicine's AI-discovered senolytic shows human proof-of-concept
+2026-05-14	https://longevity.technology/news/first-ai-designed-senolytic-shows-human-efficacy/	Insilico Medicine's AI-discovered senolytic shows human proof-of-concept
+2026-05-14	https://neuralink.com/blog/link-2-5-pivotal-trial-enrollment	Neuralink's Link 2.5 adds 2,048 channels in pivotal trial
+2026-05-14	https://spectrum.ieee.org/neuralink-2048-channel-pivotal-trial-2026	Neuralink's Link 2.5 adds 2,048 channels in pivotal trial
+2026-05-14	https://www.cell.com/cell/fulltext/S0092-8674(26	Altos Labs' systemic reprogramming extends mouse lifespan 41%
+2026-05-14	https://altoslabs.com/mouse-lifespan-extension-systemic-reprogramming-2026	Altos Labs' systemic reprogramming extends mouse lifespan 41%
+2026-05-14	https://investor.lilly.com/news-releases/news-release-details/lilly-zagotenemab-phase-3-alzheimers-success	Eli Lilly's tau antibody zagotenemab meets Phase 3 primary endpoint
+2026-05-14	https://www.statnews.com/2026/05/14/eli-lilly-tau-antibody-alzheimers-phase-3/	Eli Lilly's tau antibody zagotenemab meets Phase 3 primary endpoint
+2026-05-14	https://synchron.com/news/40-wpm-locked-in-als-patient-2026	Synchron's BCI achieves 40 words per minute in locked-in ALS patient
+2026-05-14	https://www.nature.com/articles/s41591-026-03456-z	Synchron's BCI achieves 40 words per minute in locked-in ALS patient
+2026-05-14	https://www.anthropic.com/research/claude-4-opus-planning-tokens	Anthropic releases Claude 4.0 Opus Preview with 95.7% on SWE-Bench Verified
+2026-05-14	https://www.theverge.com/2026/5/14/anthropic-claude-4-opus-planning-tokens-swe-bench	Anthropic releases Claude 4.0 Opus Preview with 95.7% on SWE-Bench Verified
+2026-05-14	https://ai.meta.com/blog/llama-4-1-405b/	Meta releases Llama 4.1 405B with full open weights
+2026-05-14	https://huggingface.co/meta-llama/Llama-4.1-405B	Meta releases Llama 4.1 405B with full open weights
+2026-05-14	https://openai.com/index/gpt-6-preview-enterprise-access	OpenAI releases GPT-6 Preview to enterprise tier
+2026-05-14	https://www.bloomberg.com/news/articles/2026-05-13/openai-gpt-6-preview-enterprise-tier	OpenAI releases GPT-6 Preview to enterprise tier
+2026-05-14	https://www.nature.com/articles/s41586-026-09789-y	Google DeepMind's Gemini 4.0 Ultra passes 50% on FrontierMath
+2026-05-14	https://deepmind.google/discover/blog/gemini-4-ultra-frontiermath/	Google DeepMind's Gemini 4.0 Ultra passes 50% on FrontierMath
+2026-05-14	https://www.deepseek.com/news/deepseek-v7	China's DeepSeek-V7 claims GPT-5.5 parity at $0.10 per million tokens
+2026-05-14	https://www.scmp.com/tech/big-tech/article/3265789/deepseek-v7-gpt-parity-domestic-chips	China's DeepSeek-V7 claims GPT-5.5 parity at $0.10 per million tokens
+2026-05-14	https://arxiv.org/abs/2605.07891	Stanford introduces "Self-Taught Reasoner" framework for multi-step reasoning
+2026-05-14	https://hai.stanford.edu/news/self-taught-reasoner-framework-2026	Stanford introduces "Self-Taught Reasoner" framework for multi-step reasoning
+2026-05-14	https://digital-strategy.ec.europa.eu/en/library/ai-act-phase-2-compliance-deadline-2026	EU AI Act Phase 2 compliance deadline hits August 2
+2026-05-14	https://techcrunch.com/2026/05/13/eu-ai-act-phase-2-deadline-august/	EU AI Act Phase 2 compliance deadline hits August 2
+2026-05-14	https://blog.replit.com/agent-2-autonomous-deployment	Replit Agent 2.0 ships with autonomous full-stack deployment
+2026-05-14	https://www.theverge.com/2026/5/14/replit-agent-2-autonomous-full-stack-deployment	Replit Agent 2.0 ships with autonomous full-stack deployment
+2026-05-14	https://cursor.sh/changelog/fleet-refactor-mode	Cursor Composer Pro adds "fleet refactor" mode for org-wide migrations
+2026-05-14	https://news.ycombinator.com/item?id=42834567	Cursor Composer Pro adds "fleet refactor" mode for org-wide migrations
+2026-05-14	https://www.anthropic.com/news/claude-developer-mode	Anthropic launches "Claude Developer Mode" with terminal and filesystem access
+2026-05-14	https://simonwillison.net/2026/May/14/claude-developer-mode/	Anthropic launches "Claude Developer Mode" with terminal and filesystem access
+2026-05-14	https://github.blog/changelog/2026-05-13-copilot-workspace-bug-bounty-mode/	GitHub Copilot Workspace adds "bug bounty mode"
+2026-05-14	https://www.theregister.com/2026/05/13/github-copilot-bug-bounty-mode/	GitHub Copilot Workspace adds "bug bounty mode"
+2026-05-14	https://windsurf.com/changelog/2-3	Windsurf 2.3 introduces "Cascade CI/CD" for test-driven refactoring
+2026-05-14	https://news.ycombinator.com/item?id=42835678	Windsurf 2.3 introduces "Cascade CI/CD" for test-driven refactoring
+2026-05-14	https://www.hightower.dev/posts/claude-api-design-2026	"How I use Claude for API design" — Kelsey Hightower's workflow essay
+2026-05-14	https://news.ycombinator.com/item?id=42836789	"How I use Claude for API design" — Kelsey Hightower's workflow essay
