@@ -28,11 +28,15 @@ LEDGER = REPO_ROOT / ".covered-urls.tsv"
 PROMPT_FILE = REPO_ROOT / "_prompt.md"
 
 LOOKBACK_DAYS_LEDGER = 14
-LOOKBACK_DAYS_DIGESTS = 3
+LOOKBACK_DAYS_DIGESTS = 2
 
 MODEL = os.environ.get("DIGEST_MODEL", "claude-sonnet-4-5")
 MAX_TOKENS = 16000
-WEB_SEARCH_MAX_USES = 30
+# Each web search call returns ~5-8K tokens of result content. With Sonnet 4.5's
+# 200K context window, 30 searches would push us over the limit on busy news
+# days (this happened 2026-05-14 → BadRequestError, prompt was 203K tokens).
+# 15 leaves ~50K tokens of headroom while still allowing thorough research.
+WEB_SEARCH_MAX_USES = 15
 
 DIGEST_TO = os.environ.get("DIGEST_TO", "anshvidyarthi@gmail.com")
 DIGEST_FROM = "Cool Topic Readings <onboarding@resend.dev>"
