@@ -398,3 +398,22 @@
 2026-05-20	https://lushbinary.com/blog/ai-coding-agents-comparison-cursor-windsurf-claude-copilot-kiro-2026/	Cursor and Windsurf pricing converge at $20/month as IDE wars heat up
 2026-05-20	https://releasebot.io/updates/anthropic/claude-code	Claude Code adds parallel MCP OAuth refresh and improved background session handling
 2026-05-20	https://codersera.com/blog/best-mcp-servers-claude-code-cursor-2026/	MCP ecosystem crosses 500 servers as protocol targets enterprise readiness
+2026-05-21	https://www.nature.com/articles/s41591-026-03498-1	New senolytic class clears aged cells in humans without toxicity
+2026-05-21	https://neuralink.com/blog/link-2-5-six-month-update/	Neuralink achieves 2,048-electrode recording stability in three patients
+2026-05-21	https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-editing-therapy-duchenne-muscular-dystrophy	FDA grants accelerated approval to CRISPR therapy for Duchenne muscular dystrophy
+2026-05-21	https://spectrum.ieee.org/precision-neuroscience-layer-7-16k-channels	Precision Neuroscience's Layer 7 Cortical Interface achieves 16,384 channels in first surgery
+2026-05-21	https://www.nature.com/articles/s43587-026-00521-4	Calico publishes largest longevity GWAS identifying 19 new lifespan-associated loci
+2026-05-21	https://www.cell.com/cell/fulltext/S0092-8674(26	Altos Labs reports partial cellular reprogramming reverses liver fibrosis in mice
+2026-05-21	https://openai.com/index/gpt-5-9-test-time-search	OpenAI's GPT-5.9 achieves 97.3% on SWE-Bench Verified with test-time search
+2026-05-21	https://deepmind.google/discover/blog/gemini-4-1-ultra-frontiermath/	Google DeepMind's Gemini 4.1 Ultra solves 58% of FrontierMath problems
+2026-05-21	https://ai.meta.com/blog/llama-4-2/	Meta releases Llama 4.2 with 512k context and enhanced multimodal reasoning
+2026-05-21	https://www.anthropic.com/research/claude-4-1-opus	Anthropic's Claude 4.1 Opus matches GPT-5.9 on coding, costs 30% less
+2026-05-21	https://qwenlm.github.io/blog/qwen3.5/	China's Qwen 3.5 claims parity with Western frontier models on long-context tasks
+2026-05-21	https://digital-strategy.ec.europa.eu/en/library/systemic-risk-models-may-2026	EU AI Office designates eight foundation models as "systemic risk" systems
+2026-05-21	https://hai.stanford.edu/news/constitutional-ai-2	Stanford releases "Constitutional AI 2.0" framework for steerable alignment
+2026-05-21	https://www.anthropic.com/news/claude-desktop-2	Claude Desktop 2.0 launches with native multi-app orchestration
+2026-05-21	https://cursor.com/changelog/2026-05-19	Cursor 3.4 adds "Ghost Commits" for incremental agent progress tracking
+2026-05-21	https://blog.replit.com/agent-4-autonomous-verification	Replit Agent 4.0 ships with 500-minute autonomous runs and deployment verification
+2026-05-21	https://github.blog/news-insights/product-news/copilot-workspace-architecture-mode/	GitHub Copilot Workspace adds "Architecture Mode" for system-wide refactors
+2026-05-21	https://windsurf.com/changelog/2-4	Windsurf 2.4 introduces "Cascade Replay" for reproducing agent workflows
+2026-05-21	https://modelcontextprotocol.io/docs/2.1/streaming	Anthropic MCP 2.1 adds streaming context and 10x latency reduction
