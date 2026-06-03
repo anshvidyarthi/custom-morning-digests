@@ -28,7 +28,9 @@ LEDGER = REPO_ROOT / ".covered-urls.tsv"
 PROMPT_FILE = REPO_ROOT / "_prompt.md"
 
 LOOKBACK_DAYS_LEDGER = 14
-LOOKBACK_DAYS_DIGESTS = 2
+# LOOKBACK_DAYS_LEDGER now drives both URL exclusion AND the headline block,
+# replacing the older "inline last N digests" approach (which buried headlines
+# in prose and made semantic comparison unreliable).
 
 MODEL = os.environ.get("DIGEST_MODEL", "claude-sonnet-4-5")
 MAX_TOKENS = 16000
@@ -66,18 +68,46 @@ def build_covered_urls(today: str) -> str:
     return "\n".join(keep) if keep else "(no recent entries)"
 
 
-def build_recent_digests(today: str) -> str:
-    """Return concatenated content of the last N digest files (excluding today)."""
-    if not DIGESTS_DIR.exists():
-        return "(no recent digests — first run)"
-    files = sorted(
-        [p for p in DIGESTS_DIR.glob("[0-9]*.md") if p.stem != today],
-        reverse=True,
-    )[:LOOKBACK_DAYS_DIGESTS]
-    if not files:
-        return "(no recent digests — first run)"
-    sections = [f"=== {p.stem} ===\n{p.read_text()}" for p in files]
-    return "\n\n".join(sections)
+def build_recent_headlines(today: str) -> str:
+    """Return last-14-days headlines grouped by date, deduped within each date.
+
+    Same story often appears at multiple URLs in a single digest (the agent cites
+    multiple sources). Collapsing to unique headlines per date gives the model
+    a clean signal for semantic matching — far better than wading through prose.
+    """
+    if not LEDGER.exists():
+        return "(no entries yet — first run)"
+    cutoff = (
+        datetime.strptime(today, "%Y-%m-%d") - timedelta(days=LOOKBACK_DAYS_LEDGER)
+    ).strftime("%Y-%m-%d")
+
+    by_date: dict[str, list[str]] = {}
+    seen_per_date: dict[str, set[str]] = {}
+
+    for line in LEDGER.read_text().splitlines():
+        parts = line.split("\t", 2)
+        if len(parts) < 3:
+            continue
+        date, _url, headline = parts[0], parts[1], parts[2]
+        if date < cutoff or date == today:
+            continue
+        if date not in by_date:
+            by_date[date] = []
+            seen_per_date[date] = set()
+        if headline not in seen_per_date[date]:
+            by_date[date].append(headline)
+            seen_per_date[date].add(headline)
+
+    if not by_date:
+        return "(no recent entries)"
+
+    out: list[str] = []
+    for date in sorted(by_date.keys(), reverse=True):
+        out.append(f"{date}:")
+        for h in by_date[date]:
+            out.append(f"  - {h}")
+        out.append("")
+    return "\n".join(out).rstrip()
 
 
 def render_prompt(today: str) -> str:
@@ -86,7 +116,7 @@ def render_prompt(today: str) -> str:
         template
         .replace("{TODAY}", today)
         .replace("{COVERED_URLS}", build_covered_urls(today))
-        .replace("{RECENT_DIGESTS_CONTENT}", build_recent_digests(today))
+        .replace("{RECENT_HEADLINES}", build_recent_headlines(today))
     )
 
 

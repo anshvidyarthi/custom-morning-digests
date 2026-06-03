@@ -10,16 +10,26 @@ STEP 1 — HARD-EXCLUDE these URLs (already covered, last 14 days). Today's dige
 {COVERED_URLS}
 ```
 
-STEP 2 — STORY-LEVEL CHECK against the inline recent digests below. The same news event often appears at different URLs across outlets. To catch those:
+STEP 2 — SEMANTIC STORY-LEVEL CHECK against the headlines below.
 
-{RECENT_DIGESTS_CONTENT}
+URL exclusion (Step 1) only catches *exact* URL matches. The same story is often reported by 4-6 outlets — TechCrunch, Bloomberg, The Verge, Hacker News, etc. — each with a different URL but identical underlying news. Step 2 catches those.
+
+Below are the unique headlines that have been covered in the last 14 days, grouped by date. Read them carefully:
+
+```
+{RECENT_HEADLINES}
+```
 
 For every candidate item you're considering for today's digest, ask:
-- Is this the same news event (same announcement, same paper, same product launch, same incident, same person/company in the same context) as anything in the digests above?
-- A genuine follow-up with substantively new information (e.g., trial results published a week after enrollment was announced) is OK.
-- A rehash of the same news from a different outlet, or a "now with more details" version of yesterday's story, is NOT OK — drop it.
+- Does any headline above describe the **same news event** as my candidate? Same announcement, same paper, same product launch, same incident, same regulatory action, same M&A deal — even if the wording is different and the URL is different.
+- Examples of "same event, different wording" — all should be SKIPPED:
+  - "OpenAI ships GPT-5.5 reasoning mode" vs. "OpenAI's GPT-5.5 brings step-by-step thinking" vs. "OpenAI release notes: GPT-5.5"
+  - "FDA approves Vorlumi for melanoma" vs. "Roche's Vorlumi cleared by FDA" vs. "Vorlumi gets US approval"
+  - "Anthropic raises $5B from Google" vs. "Google deepens Anthropic investment with $5B" vs. "Anthropic Series F closes at $5B"
+- A genuine FOLLOW-UP with substantively new information (e.g., trial results published two weeks after enrollment was announced, or earnings beat following a guidance announcement) is OK — but only if the new facts are the headline, not the same facts re-summarized.
+- When uncertain, DROP IT. A digest with 12 fresh items beats one with 18 where 6 are recycled.
 
-When in doubt, drop it. A digest with 12 fresh items beats one with 18 items where 6 are recycled.
+Read the recent headlines list TWICE before drafting today's digest. Cross-check every candidate against it.
 
 BUT: don't be SO aggressive that you produce nothing. Aim for 4-6 items per niche. If your first round of searches turns up things that look already-covered, search more — different sources, different angles, different sub-topics within each niche. There is always something new in the world; the job is to find it. Producing a digest with "no news today" or empty sections is a failure mode. Search broadly and keep looking until you have at least 4 substantive items per niche.
 
