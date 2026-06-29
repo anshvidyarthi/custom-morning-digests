@@ -47,11 +47,104 @@ DIGEST_FROM = "Cool Topic Readings <onboarding@resend.dev>"
 ET_OFFSET_HOURS = -4  # EDT; will be -5 in EST (Nov-Mar). Acceptable drift.
 
 
+# One niche per weekday. weekday() returns 0=Mon..6=Sun; weekends shouldn't fire
+# (cron filters them out), but the dict covers all 7 just in case.
+NICHE_KEY_BY_WEEKDAY: dict[int, str] = {
+    0: "ai",                # Monday
+    1: "ai_productivity",   # Tuesday
+    2: "biotech",           # Wednesday
+    3: "finance",           # Thursday
+    4: "quantum",           # Friday
+    5: "ai",                # Saturday (only if someone manually fires)
+    6: "ai",                # Sunday
+}
+
+NICHE_META: dict[str, dict[str, str]] = {
+    "ai": {
+        "name": "AI",
+        "emoji": "🤖",
+        "definition": """AI — research, models, lab announcements, policy:
+- Anthropic, OpenAI, DeepMind, Google AI, Meta AI, xAI blogs and changelogs
+- arXiv cs.LG, cs.AI, cs.CL — most-discussed recent papers
+- Hacker News (AI stories with significant discussion)
+- Simon Willison's blog, Nathan Lambert's Interconnects, Ethan Mollick's One Useful Thing
+- Major model releases, benchmark results (HLE, SWE-bench, AIME, MMLU-Pro, ARC)
+- AI policy / regulatory news (EU AI Act, US executive orders, state-level laws)
+- Frontier-lab safety publications and red-team writeups
+- Notable lab papers on reasoning, alignment, interpretability""",
+    },
+    "ai_productivity": {
+        "name": "AI Productivity",
+        "emoji": "⚡",
+        "definition": """AI Productivity — tools, agents, workflows, "how I use AI" essays:
+- AI-powered coding tools: Cursor, Claude Code, GitHub Copilot, Windsurf, Continue, Aider, Zed AI, Replit, Vercel v0
+- Agent frameworks: Anthropic Agent SDK, OpenAI Agents SDK, LangGraph, CrewAI, AutoGen, Mastra
+- Browser/computer-use agents: Anthropic Computer Use, Manus, MultiOn, BrowserBase, Playwright MCP
+- MCP server releases, IDE extensions, prompt libraries, skill marketplaces
+- Workflow techniques from credible practitioners (Simon Willison, Geoffrey Huntley, Mitchell Hashimoto, Birchtree)
+- Productivity-focused launches in adjacent tools: Notion AI, Linear, Granola, Raycast AI, Arc Browser AI, ChatGPT Atlas
+- Notable agent harness benchmarks / evals comparing tools
+- Skip pure model releases unless they ship a meaningful new productivity feature""",
+    },
+    "biotech": {
+        "name": "Biotech / Longevity / Neurotech",
+        "emoji": "🧬",
+        "definition": """Biotech / Longevity / Neurotech:
+- bioRxiv (neuroscience, aging, regenerative medicine, gene therapy preprints)
+- Nature, Science news sections
+- Endpoints News, Fierce Biotech, STAT
+- Longevity: Lifespan.io, Rejuvenation Now, Buck Institute, NUS Healthy Longevity, Open Longevity
+- Neurotech: Neuralink, Synchron, Precision Neuroscience, Paradromics, BCI/brain-computer-interface news
+- FDA approvals, EMA approvals, major clinical trial readouts (Phase 2/3)
+- Notable acquisitions or licensing deals in therapeutics
+- Gene editing (CRISPR, prime editing), cell therapy, mRNA platform news""",
+    },
+    "finance": {
+        "name": "Finance & Stock Markets",
+        "emoji": "📈",
+        "definition": """Finance & Stock Markets:
+- Major US market moves: S&P 500, NASDAQ, Dow — notable single-day swings, sector rotation
+- Single-stock movers >5%: meaningful catalyst (earnings beat/miss, guidance, M&A, regulatory)
+- Earnings reports — beats, misses, guidance changes from notable names
+- Fed: FOMC decisions, dot plot, speeches, balance-sheet actions
+- Macro data: CPI, PPI, NFP, JOLTS, GDP, ISM PMI — surprises vs. consensus
+- Bond market: 2y/10y/30y yields, yield-curve shape, credit spreads
+- Sector trends: tech (semiconductors, AI capex), energy (oil, nat gas), financials, biotech
+- IPOs, secondary offerings, notable M&A announcements
+- Crypto only if material: BTC/ETH >10% moves, ETF flows, regulatory shifts
+- Sources: Bloomberg, WSJ, FT, Reuters, CNBC, MarketWatch, Yahoo Finance
+- Substacks: Matt Levine (Money Stuff), Joseph Politano (Apricitas Economics), Stratechery""",
+    },
+    "quantum": {
+        "name": "Quantum",
+        "emoji": "⚛️",
+        "definition": """Quantum (computing, hardware, algorithms, ecosystem):
+- Industry players: IBM Quantum, Google Quantum AI, Microsoft Azure Quantum, IonQ, Rigetti, PsiQuantum, Atom Computing, QuEra, Pasqal, D-Wave, Quantinuum
+- arXiv quant-ph — most-discussed recent papers
+- Hardware milestones: qubit count, two-qubit-gate fidelity, T1/T2 coherence times, error rates
+- Quantum error correction breakthroughs (surface code, color codes, magic-state distillation)
+- Quantum algorithms: VQE, QAOA, Shor's, HHL, quantum machine learning advances
+- Software stacks: Qiskit, Cirq, PennyLane, Q#, Braket
+- Government / institutional programs: DARPA, NSF, DOE, EU Quantum Flagship, UK National Quantum Strategy
+- Investment & M&A in quantum
+- Notable hires, lab announcements, conference talks (Q2B, IEEE Quantum Week)
+- Sources: Quanta Magazine, IEEE Spectrum quantum coverage, Nature Physics, Physics World""",
+    },
+}
+
+
 # ---- Helpers ----
 
 def today_str() -> str:
     """Today's date in America/New_York (approximate via fixed offset)."""
     return datetime.now(timezone(timedelta(hours=ET_OFFSET_HOURS))).strftime("%Y-%m-%d")
+
+
+def niche_for_date(date_str: str) -> dict[str, str]:
+    """Return the niche metadata dict for the given YYYY-MM-DD."""
+    weekday = datetime.strptime(date_str, "%Y-%m-%d").weekday()
+    key = NICHE_KEY_BY_WEEKDAY[weekday]
+    return NICHE_META[key]
 
 
 def build_covered_urls(today: str) -> str:
@@ -112,9 +205,13 @@ def build_recent_headlines(today: str) -> str:
 
 def render_prompt(today: str) -> str:
     template = PROMPT_FILE.read_text()
+    niche = niche_for_date(today)
     return (
         template
         .replace("{TODAY}", today)
+        .replace("{NICHE_NAME}", niche["name"])
+        .replace("{NICHE_EMOJI}", niche["emoji"])
+        .replace("{NICHE_DEFINITION}", niche["definition"])
         .replace("{COVERED_URLS}", build_covered_urls(today))
         .replace("{RECENT_HEADLINES}", build_recent_headlines(today))
     )
@@ -178,15 +275,17 @@ def validate_digest(text: str) -> None:
         raise RuntimeError(f"Digest missing expected sections: {missing}")
     if len(text) < 1500:
         raise RuntimeError(f"Digest suspiciously short: {len(text)} chars")
-    # Sanity: at least 4 items with a URL across the whole digest.
+    # Sanity: at least 6 items with a URL across the whole digest.
     # Allow headline and URL to be separated by up to ~600 chars (multi-line items).
+    # Threshold is 6 (not 4) because we're single-niche-per-day now — going deeper
+    # in one topic means 8-12 items is the target.
     bold_url_pattern = re.compile(
         r"\*\*[^*]{1,200}\*\*.{0,600}?\[[^\]]+\]\(https?://", re.DOTALL
     )
     matches = bold_url_pattern.findall(text)
-    if len(matches) < 4:
+    if len(matches) < 6:
         raise RuntimeError(
-            f"Digest has only {len(matches)} items with URLs (need >=4) — agent "
+            f"Digest has only {len(matches)} items with URLs (need >=6) — agent "
             "likely returned a 'no news' placeholder. Raw response saved to "
             ".last-raw-response.md for debugging."
         )
@@ -282,7 +381,7 @@ def md_to_html(text: str) -> str:
     return "\n".join(out)
 
 
-def send_email(content: str, today: str) -> None:
+def send_email(content: str, today: str, niche_name: str) -> None:
     api_key = os.environ.get("RESEND_API_KEY")
     if not api_key:
         print("RESEND_API_KEY not set — skipping email.")
@@ -300,7 +399,7 @@ def send_email(content: str, today: str) -> None:
     payload = {
         "from": DIGEST_FROM,
         "to": [DIGEST_TO],
-        "subject": f"Cool Topic Readings — {today}",
+        "subject": f"Cool Topic Readings: {niche_name} — {today}",
         "html": styled,
         "text": content,
     }
@@ -322,7 +421,8 @@ def send_email(content: str, today: str) -> None:
 
 def main() -> int:
     today = today_str()
-    print(f"=== Cool Topic Readings run for {today} ===")
+    niche = niche_for_date(today)
+    print(f"=== Cool Topic Readings: {niche['name']} run for {today} ===")
 
     # Idempotency guard: if today's digest already exists in the repo (committed
     # by an earlier successful fire), exit immediately. This makes the multi-time
@@ -349,7 +449,7 @@ def main() -> int:
     appended = update_ledger(digest, today)
     print(f"Ledger: appended {appended} items")
 
-    send_email(digest, today)
+    send_email(digest, today, niche["name"])
     print("Done.")
     return 0
 
