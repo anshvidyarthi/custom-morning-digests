@@ -275,17 +275,19 @@ def validate_digest(text: str) -> None:
         raise RuntimeError(f"Digest missing expected sections: {missing}")
     if len(text) < 1500:
         raise RuntimeError(f"Digest suspiciously short: {len(text)} chars")
-    # Sanity: at least 6 items with a URL across the whole digest.
+    # Sanity: at least 4 items with a URL across the whole digest.
     # Allow headline and URL to be separated by up to ~600 chars (multi-line items).
-    # Threshold is 6 (not 4) because we're single-niche-per-day now — going deeper
-    # in one topic means 8-12 items is the target.
+    # Started at 6 for single-niche-per-day (target 8-12 items) but on real slow
+    # news days the model consistently produced 3-5 items — leading to repeated
+    # false-positive rejections (5-06, 6-03, 7-20, 8-24 all had this pattern).
+    # A thin-but-real 4-item digest is strictly better than an empty inbox.
     bold_url_pattern = re.compile(
         r"\*\*[^*]{1,200}\*\*.{0,600}?\[[^\]]+\]\(https?://", re.DOTALL
     )
     matches = bold_url_pattern.findall(text)
-    if len(matches) < 6:
+    if len(matches) < 4:
         raise RuntimeError(
-            f"Digest has only {len(matches)} items with URLs (need >=6) — agent "
+            f"Digest has only {len(matches)} items with URLs (need >=4) — agent "
             "likely returned a 'no news' placeholder. Raw response saved to "
             ".last-raw-response.md for debugging."
         )
