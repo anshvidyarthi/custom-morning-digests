@@ -823,3 +823,15 @@
 2026-08-31	https://simonwillison.net/	Simon Willison covers OpenAI-Hugging Face incident in Black Hat video breakdown
 2026-08-31	https://www.interconnects.ai/p/farewell-ai2	Nathan Lambert departs Ai2, launches stealth AI lab
 2026-08-31	https://www.anthropic.com/news/ben-bernanke	Ben Bernanke joins Anthropic's Long-Term Benefit Trust
+2026-09-01	https://cursor.com/changelog	Cursor adds Grok 4.6 with 2x usage, streamlines Cloud Agents workflow
+2026-09-01	https://github.blog/changelog/2026-08-28-upcoming-changes-to-github-copilot-policies-and-billing/	GitHub Copilot changes default review effort to Balanced, reopens Business signups
+2026-09-01	https://claude.com/blog/computer-use-skills-api-files-api	Anthropic ships Computer Use and Browser Use to GA with batch actions
+2026-09-01	https://community.vercel.com/t/vercel-weekly-2026-08-31/48663	Vercel Connect reaches GA with OIDC-based agent tokens, Run SDK, and eve agents
+2026-09-01	https://blog.modelcontextprotocol.io/posts/2026-07-28/	MCP 2026-07-28 ships stateless protocol core, extensions track
+2026-09-01	https://www.granola.ai/updates	Granola closes $125M at $1.5B, ships MCP connector and cross-meeting AI
+2026-09-01	https://blog.replit.com/	Replit named Google Cloud 2026 AI Tooling Partner, serves 50M+ users
+2026-09-01	https://techcommunity.microsoft.com/blog/microsoft365copilotblog/what%E2%80%99s-new-in-microsoft-copilot--august-2026/4551960	Microsoft adds effort-level controls to Cowork, GitHub credit analytics
+2026-09-01	https://en.wikipedia.org/wiki/Notion_(productivity_software	Notion Developer Platform launches Workers, database sync, agent integrations
+2026-09-01	https://www.openhands.dev/blog/ai-coding-benchmarks-explained	SWE-bench Verified scores cluster in high 80s, Pro drops to 60s
+2026-09-01	https://blog.cloudflare.com/mcp-v2/	MCP's stateless transformation changes deployment requirements across the ecosystem
+2026-09-01	https://thenewstack.io/anthropic-browser-use-tool/	Anthropic's Browser Use tool is a new toolset, not Computer Use renamed
