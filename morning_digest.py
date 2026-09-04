@@ -324,15 +324,26 @@ def write_digest(content: str, today: str) -> Path:
 
 
 def extract_items(text: str) -> list[tuple[str, str]]:
-    """Extract (headline, url) pairs from digest markdown."""
+    """Extract (headline, url) pairs from digest markdown.
+
+    Splits on **bold** boundaries (not on \\n\\n) because the model sometimes
+    produces multi-paragraph items where the URL is several paragraphs after
+    the headline. The old paragraph-based extraction missed those (2026-09-02
+    Biotech and 2026-09-04 Quantum both had ledger:0 despite real digests).
+    """
     items: list[tuple[str, str]] = []
-    for para in text.split("\n\n"):
-        m = re.match(r"\*\*([^*]+)\*\*", para)
-        if not m:
-            continue
+    bold_re = re.compile(r"\*\*([^*\n]{5,200})\*\*")
+    matches = list(bold_re.finditer(text))
+    for i, m in enumerate(matches):
         headline = m.group(1).strip().replace("\t", " ").replace("\n", " ")
-        for url in re.findall(r"\((https?://[^)\s]+)\)", para):
-            items.append((headline, url.replace("\t", " ")))
+        body_start = m.end()
+        body_end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
+        body = text[body_start:body_end]
+        # Ignore items whose body doesn't contain a URL within a reasonable
+        # window — filters out TL;DR bullets and inline **emphasis** noise.
+        for url_match in re.finditer(r"\((https?://[^)\s]+)\)", body[:1500]):
+            url = url_match.group(1).replace("\t", " ")
+            items.append((headline, url))
     return items
 
 
