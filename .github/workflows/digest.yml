@@ -45,6 +45,19 @@ jobs:
           DIGEST_MODEL: ${{ vars.DIGEST_MODEL || 'claude-sonnet-4-5' }}
         run: python morning_digest.py
 
+      # Upload the raw model output for post-mortem when the digest step fails
+      # (usually a "validation caught too few items" case — we want to see what
+      # the model actually produced so we can tell "structural mismatch" from
+      # "genuine no-news day"). Kept 30 days.
+      - name: Upload raw response on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: raw-response-${{ github.run_id }}
+          path: .last-raw-response.md
+          if-no-files-found: warn
+          retention-days: 30
+
       - name: Commit digest + ledger
         run: |
           git config user.name "morning-digest-bot"

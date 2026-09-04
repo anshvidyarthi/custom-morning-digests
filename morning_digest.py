@@ -116,19 +116,40 @@ NICHE_META: dict[str, dict[str, str]] = {
 - Substacks: Matt Levine (Money Stuff), Joseph Politano (Apricitas Economics), Stratechery""",
     },
     "quantum": {
-        "name": "Quantum",
+        "name": "Quantum & Deep Tech",
         "emoji": "⚛️",
-        "definition": """Quantum (computing, hardware, algorithms, ecosystem):
+        "definition": """Quantum & Deep Tech — frontier physics, computing, and materials:
+
+QUANTUM:
 - Industry players: IBM Quantum, Google Quantum AI, Microsoft Azure Quantum, IonQ, Rigetti, PsiQuantum, Atom Computing, QuEra, Pasqal, D-Wave, Quantinuum
 - arXiv quant-ph — most-discussed recent papers
 - Hardware milestones: qubit count, two-qubit-gate fidelity, T1/T2 coherence times, error rates
 - Quantum error correction breakthroughs (surface code, color codes, magic-state distillation)
-- Quantum algorithms: VQE, QAOA, Shor's, HHL, quantum machine learning advances
 - Software stacks: Qiskit, Cirq, PennyLane, Q#, Braket
-- Government / institutional programs: DARPA, NSF, DOE, EU Quantum Flagship, UK National Quantum Strategy
-- Investment & M&A in quantum
-- Notable hires, lab announcements, conference talks (Q2B, IEEE Quantum Week)
-- Sources: Quanta Magazine, IEEE Spectrum quantum coverage, Nature Physics, Physics World""",
+- Government programs: DARPA, NSF, DOE, EU Quantum Flagship, UK National Quantum Strategy
+
+PHOTONICS & OPTICAL COMPUTING:
+- Silicon photonics, integrated photonic circuits, photonic AI accelerators (Lightmatter, Ayar Labs, PsiQuantum photonic qubits)
+- Optical networking and co-packaged optics
+- Neuromorphic and analog computing (Rain AI, Mythic AI, Lightelligence)
+
+ADVANCED SEMICONDUCTORS:
+- Sub-2nm nodes, GAAFET/CFET transitions, backside power delivery
+- TSMC, Samsung Foundry, Intel Foundry, ASML EUV / High-NA
+- Custom AI silicon at fabs (Groq, Cerebras, SambaNova, Tenstorrent, Etched, Rain)
+- CHIPS Act updates, US/EU/Asia fab announcements
+
+SUPERCONDUCTORS & MATERIALS SCIENCE:
+- Room-temp / high-Tc superconductor claims and rebuttals (LK-99 aftermath, new candidates)
+- Novel materials: 2D materials, MXenes, metallic hydrogen, high-entropy alloys
+- Materials for batteries (solid-state, sodium-ion, lithium-metal), catalysts, structural composites
+- Nature Physics, Nature Materials, Physical Review X, Science
+
+FUSION & ENERGY PHYSICS:
+- Fusion milestones: NIF, ITER, JET, Commonwealth Fusion, Helion, TAE, Zap Energy, Tokamak Energy
+- Net-energy-gain announcements, tritium breeding, plasma stability results
+
+Sources: Quanta Magazine, IEEE Spectrum, Ars Technica science section, Semianalysis, Chips and Cheese, Anandtech, Physics World, Interesting Engineering. Skip crypto, general-audience science summaries without technical substance, and press releases with no new results.""",
     },
 }
 
