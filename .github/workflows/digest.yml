@@ -55,6 +55,8 @@ jobs:
         with:
           name: raw-response-${{ github.run_id }}
           path: .last-raw-response.md
+          # dotfiles are skipped by default in upload-artifact@v4 — flip on.
+          include-hidden-files: true
           if-no-files-found: warn
           retention-days: 30
 
